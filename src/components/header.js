@@ -1,5 +1,4 @@
-const Header = (title, date, temp) => {
-  // TASK 1
+// TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
   // The html tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
@@ -11,6 +10,25 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+const Header = (title, date, temp) => {
+  const headerDiv = document.createElement('div');
+  const dateSpan = document.createElement('span');
+  const headerTitle = document.createElement('h1');
+  const tempSpan = document.createElement('span');
+
+  headerDiv.classList.add('header');
+  dateSpan.classList.add('date');
+  tempSpan.classList.add('temp');
+
+  headerDiv.appendChild(dateSpan);
+  headerDiv.appendChild(headerTitle);
+  headerDiv.appendChild(tempSpan);
+
+  dateSpan.textContent = `${date}`;
+  headerTitle.textContent = `${title}`;
+  tempSpan.textContent = `${temp}`;
+
+  return headerDiv;
 }
 
 const headerAppender = (selector) => {
