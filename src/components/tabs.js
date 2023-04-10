@@ -1,5 +1,4 @@
-const Tabs = (topics) => {
-  // TASK 3
+// TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
   // As an example, if the topics passed are ['javascript', 'bootstrap', 'technology']
@@ -13,16 +12,32 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+const Tabs = (topics) => {
+  const topicsDiv = document.createElement('div');
+  topicsDiv.classList.add('topics');
+
+  topics.forEach((element) => {
+    const tabDiv = document.createElement('div');
+    tabDiv.classList.add('tab');
+    tabDiv.textContent = element;
+    topicsDiv.appendChild(tabDiv);
+  })
+  return topicsDiv;
 }
 
-const tabsAppender = (selector) => {
-  // TASK 4
+
+
+ // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
   // It should obtain topics from this endpoint: `http://localhost:5001/api/topics` (test it with a console.log!).
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+
+const tabsAppender = (selector) => {
+ 
 }
 
 export { Tabs, tabsAppender }
