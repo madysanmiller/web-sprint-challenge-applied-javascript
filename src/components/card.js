@@ -54,6 +54,22 @@ const Card = (article) => {
 
 const cardAppender = (selector) => {
  
+  axios.get('http://localhost:5001/api/articles')
+  .then(res => {
+    console.log('task 6', res.data)
+    const data = res.data.articles;
+    for(let key in data){
+      data[key].forEach(article => {
+        let cardElement = document.querySelector(selector)
+        cardElement.appendChild(Card(article))
+    })
+  }
+})
+
+.catch(err => {
+  console.error(err);
+})
+
 }
 
 export { Card, cardAppender }
