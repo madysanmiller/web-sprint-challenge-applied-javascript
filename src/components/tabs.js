@@ -37,7 +37,18 @@ const Tabs = (topics) => {
   //
 
 const tabsAppender = (selector) => {
- 
+  const createTabs = document.querySelector(selector)
+
+  axios.get('http://localhost:5001/api/topics')
+  .then(res => {
+  console.log('task 4', res.data);
+
+  createTabs.appendChild(Tabs(res.data.topics))
+})
+.catch(err => {
+  console.error(err);
+})
+.finally(() => console.log('FINALLY FINISHED!'))
 }
 
 export { Tabs, tabsAppender }
