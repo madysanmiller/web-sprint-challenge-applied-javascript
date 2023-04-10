@@ -31,8 +31,7 @@ const Header = (title, date, temp) => {
   return headerDiv;
 }
 
-const headerAppender = (selector) => {
-  // TASK 2
+// TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
   // It should create a header using the Header component above, passing arguments of your choosing.
@@ -44,6 +43,10 @@ const headerAppender = (selector) => {
   // We are taking care of passing in the correct selector on line 16,
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
+
+const headerAppender = (selector) => {
+  const createHeader = document.querySelector(selector);
+  createHeader.appendChild(Header('title', 'date', 'temp'));
 }
 
 export { Header, headerAppender }
